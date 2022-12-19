@@ -12,6 +12,7 @@ namespace HelloWorld
 			int age = 36;
 			Console.WriteLine("Hello my name is {0}, I am {1} years old. I'm a {2}", name, age, job);
 			Console.WriteLine($"Hello my name is {name}, I am {age} years old. I'm a {job}");
+			Console.WriteLine(@"C:\Users\HP\source\repos\HelloWorld\HelloWorld");
 		}
 	}
 }
