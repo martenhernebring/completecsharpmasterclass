@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace HelloWorld
 {
@@ -6,11 +7,10 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			string myString = "15d";
-			string mySecondString = "13";
-			int num1 = Int32.Parse(myString);
-			int num2 = Int32.Parse(mySecondString);
-			Console.WriteLine(num1 + num2);
+			string stringForFloat = "0.85"; // datatype should be float
+			string stringForInt = "12345"; // datatype should be int
+			int i1 = Int32.Parse(stringForInt);
+			float f1 = float.Parse(stringForFloat, CultureInfo.InvariantCulture);
 		}
 	}
 }
