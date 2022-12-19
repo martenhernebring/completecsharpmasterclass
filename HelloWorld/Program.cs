@@ -7,12 +7,13 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			string name = "Morten";
-			string job = "Developer";
-			int age = 36;
-			Console.WriteLine("Hello my name is {0}, I am {1} years old. I'm a {2}", name, age, job);
-			Console.WriteLine($"Hello my name is {name}, I am {age} years old. I'm a {job}");
-			Console.WriteLine(@"C:\Users\HP\source\repos\HelloWorld\HelloWorld");
+			string unknown;
+			Console.Write("Please enter your name and press enter : ");
+			unknown = Console.ReadLine();
+			Console.WriteLine(string.Format("Upper case : {0}", unknown.ToUpper()));
+			Console.WriteLine(string.Format("Lower case : {0}", unknown.ToLower()));
+			Console.WriteLine(string.Format("Trimmed : {0}", unknown.Trim()));
+			Console.WriteLine(string.Format("Without first char : {0}", unknown.Substring(1)));
 		}
 	}
 }
