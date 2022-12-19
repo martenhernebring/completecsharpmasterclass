@@ -7,10 +7,11 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			string stringForFloat = "0.85"; // datatype should be float
-			string stringForInt = "12345"; // datatype should be int
-			int i1 = Int32.Parse(stringForInt);
-			float f1 = float.Parse(stringForFloat, CultureInfo.InvariantCulture);
+			string name = "Morten";
+			string job = "Developer";
+			int age = 36;
+			Console.WriteLine("Hello my name is {0}, I am {1} years old. I'm a {2}", name, age, job);
+			Console.WriteLine($"Hello my name is {name}, I am {age} years old. I'm a {job}");
 		}
 	}
 }
