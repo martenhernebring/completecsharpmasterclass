@@ -7,13 +7,20 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			string unknown;
-			Console.Write("Please enter your name and press enter : ");
-			unknown = Console.ReadLine();
-			Console.WriteLine(string.Format("Upper case : {0}", unknown.ToUpper()));
-			Console.WriteLine(string.Format("Lower case : {0}", unknown.ToLower()));
-			Console.WriteLine(string.Format("Trimmed : {0}", unknown.Trim()));
-			Console.WriteLine(string.Format("Without first char : {0}", unknown.Substring(1)));
+			Console.Write("Enter a string here: ");
+			string enteredString = Console.ReadLine();
+			Console.Write("Enter the character to search: ");
+			int searchedCharAscii = Console.Read();
+			//alternative Console.ReadLine()[0]
+			Console.WriteLine(String.Format("First index of char is {0}", enteredString.IndexOf((char) searchedCharAscii)));
+			//flush new lines
+			Console.ReadLine();
+			Console.Write("Enter first name: ");
+			string fullName = Console.ReadLine();
+			Console.Out.Flush();
+			Console.Write("Enter last name: ");
+			fullName = string.Concat(fullName, " ", Console.ReadLine());
+			Console.WriteLine("Your full name is {0}", fullName);
 		}
 	}
 }
