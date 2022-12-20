@@ -7,20 +7,36 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			Console.Write("Enter a string here: ");
-			string enteredString = Console.ReadLine();
-			Console.Write("Enter the character to search: ");
-			int searchedCharAscii = Console.Read();
-			//alternative Console.ReadLine()[0]
-			Console.WriteLine(String.Format("First index of char is {0}", enteredString.IndexOf((char) searchedCharAscii)));
-			//flush new lines
-			Console.ReadLine();
-			Console.Write("Enter first name: ");
-			string fullName = Console.ReadLine();
-			Console.Out.Flush();
-			Console.Write("Enter last name: ");
-			fullName = string.Concat(fullName, " ", Console.ReadLine());
-			Console.WriteLine("Your full name is {0}", fullName);
+			byte ub = 4;
+			sbyte sb = -1;
+			ushort us = 5000;
+			short ss = -300;
+			uint ui = 80000;
+			int si = -80000;
+			ulong ul = 5000000000;
+			long sl = -5000000000;
+			float fpi = 3.14F;
+			double dpi = 3.1415927;
+			char letter = 'A';
+			bool dayLight = false;
+			decimal cents50 = 0.50M;
+			string text = "I control text";
+			string wholeNumber = "15";
+			int number = Int32.Parse(wholeNumber);
+			Console.WriteLine(ub);
+			Console.WriteLine(sb);
+			Console.WriteLine(us);
+			Console.WriteLine(ss);
+			Console.WriteLine(ui);
+			Console.WriteLine(si);
+			Console.WriteLine(ul);
+			Console.WriteLine(sl);
+			Console.WriteLine(fpi);
+			Console.WriteLine(dpi);
+			Console.WriteLine(letter);
+			Console.WriteLine(dayLight);
+			Console.WriteLine(cents50);
+			Console.WriteLine(number);
 		}
 	}
 }
