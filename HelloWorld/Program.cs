@@ -4,13 +4,21 @@ namespace HelloWorld
 {
 	internal class Program
 	{
-		const double Pi = 3.14159265359;
-		const int Weeks = 52, Months = 12;
-		const string BirthDay = "1986-04-26";
-
 		static void Main(string[] args)
 		{
-			Console.WriteLine("My birthday is always going to be: {0}", BirthDay);
+			WriteSomething();
+			Write("test");
+		}
+
+		// access modifier (static) return type method name (par1, par2)
+		private static void WriteSomething()
+		{
+			Console.WriteLine("Write something method");
+		}
+
+		private static void Write(string text)
+		{
+			Console.WriteLine(text);
 		}
 	}
 }
