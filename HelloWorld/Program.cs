@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Coding.Exercise;
+using System;
 
 namespace HelloWorld
 {
@@ -6,19 +7,7 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			WriteSomething();
-			Write("test");
-		}
-
-		// access modifier (static) return type method name (par1, par2)
-		private static void WriteSomething()
-		{
-			Console.WriteLine("Write something method");
-		}
-
-		private static void Write(string text)
-		{
-			Console.WriteLine(text);
+			Method.Run();
 		}
 	}
 }
