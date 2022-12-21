@@ -6,7 +6,14 @@ namespace Coding.Exercise
 	{
 		public static void Check(int number)
 		{
-			// TODO
+			if (number % 2 == 0)
+			{
+				Console.WriteLine("Even");
+			}
+			else
+			{
+				Console.WriteLine("Odd");
+			}
 		}
 	}
 }

@@ -6,17 +6,29 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			Console.Write("Write your current temperature: ");
-			string input = Console.ReadLine();
-			if (int.TryParse(input, out int temperature))
+			Console.Write("Please enter your username: ");
+			string userName = Console.ReadLine();
+			if (IsUserRegistered())
+			{
+				Console.Write("Hi there, ");
+				if (userName.ToLower().Equals("admin"))
+				
+					Console.WriteLine("admin user");
+					
+				else if(userName != "")
 
-				Console.WriteLine("That is a valid temperature: {0}", temperature);
+					Console.WriteLine(userName);
 
-			else
+				else
 
-				Console.WriteLine("Enter a number next time");
+					Console.WriteLine("registered user");
 
+			}
 		}
 
+		private static bool IsUserRegistered()
+		{
+			return true;
+		}
 	}
 }
