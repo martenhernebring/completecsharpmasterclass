@@ -6,20 +6,16 @@ namespace HelloWorld
 	{
 		static void Main(string[] args)
 		{
-			int dividend = 1;
-			int divisor = 0;
-			try
-			{
-				int divideByZero = dividend / divisor;
-			}
-			catch (DivideByZeroException)
-			{
-				Console.WriteLine("Internal error: Divide by zero");
-			}
-			finally
-			{
-				//close open connections
-			}
+			Console.Write("Write your current temperature: ");
+			string input = Console.ReadLine();
+			if (int.TryParse(input, out int temperature))
+
+				Console.WriteLine("That is a valid temperature: {0}", temperature);
+
+			else
+
+				Console.WriteLine("Enter a number next time");
+
 		}
 
 	}
