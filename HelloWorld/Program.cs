@@ -7,17 +7,9 @@ namespace HelloWorld
 
 		static void Main(string[] args)
 		{
-			int temp = -5;
-			string state = "";
-			//if (temp < 0)
-			//{
-			//	state = "solid";
-			//}
-			//else
-			//{
-			//	state = "liquid";
-			//}
-			state = temp < 0 ? "solid" : "liquid";
+			int temp = 105;
+			string state;
+			state = temp < 0 ? "solid" : (temp > 99 ? "gas" : "liquid");
 			Console.WriteLine("State of matter is {0}", state);
 		}
 	}
