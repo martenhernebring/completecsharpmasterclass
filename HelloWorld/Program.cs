@@ -4,32 +4,21 @@ namespace HelloWorld
 {
 	internal class Program
 	{
-		private static string _highScorePlayer;
-		private static int _highScore;
 
 		static void Main(string[] args)
 		{
-			_highScorePlayer = "Morten";
-			_highScore = 300;
-			Save(250, "Maria");
-			Save(315, "Michael");
-			Save(350, "Morten");
-		}
-
-		private static void Save(int score, string playerName)
-		{
-			if (score > _highScore)
-			{
-				_highScore = score;
-				_highScorePlayer = playerName;
-				Console.WriteLine("New highscore is " + score);
-				Console.WriteLine("New highscore holder is " + playerName);
-			}
-			else
-			{
-				Console.WriteLine("The old highscore of " + _highScore + 
-					" could not be broken and is still held by " + _highScorePlayer + ".");
-			}
+			int temp = -5;
+			string state = "";
+			//if (temp < 0)
+			//{
+			//	state = "solid";
+			//}
+			//else
+			//{
+			//	state = "liquid";
+			//}
+			state = temp < 0 ? "solid" : "liquid";
+			Console.WriteLine("State of matter is {0}", state);
 		}
 	}
 }
