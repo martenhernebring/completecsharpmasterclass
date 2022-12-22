@@ -4,34 +4,31 @@ namespace HelloWorld
 {
 	internal class Program
 	{
+		private static string _highScorePlayer;
+		private static int _highScore;
 
 		static void Main(string[] args)
 		{
-			int age = 15;
-			switch (age)
+			_highScorePlayer = "Morten";
+			_highScore = 300;
+			Save(250, "Maria");
+			Save(315, "Michael");
+			Save(350, "Morten");
+		}
+
+		private static void Save(int score, string playerName)
+		{
+			if (score > _highScore)
 			{
-				case 15:
-					Console.WriteLine("Too young to party in the club");
-					break;
-				case 25:
-					Console.WriteLine("Good to go");
-					break;
-				default:
-					Console.WriteLine("How old are you then?");
-					break;
+				_highScore = score;
+				_highScorePlayer = playerName;
+				Console.WriteLine("New highscore is " + score);
+				Console.WriteLine("New highscore holder is " + playerName);
 			}
-			string userName = "Morten";
-			switch (userName)
+			else
 			{
-				case "Morten":
-					Console.WriteLine("User name is Morten");
-					break;
-				case "root":
-					Console.WriteLine("User name is root");
-					break;
-				default:
-					Console.WriteLine("User name is unknown);
-					break;
+				Console.WriteLine("The old highscore of " + _highScore + 
+					" could not be broken and is still held by " + _highScorePlayer + ".");
 			}
 		}
 	}
