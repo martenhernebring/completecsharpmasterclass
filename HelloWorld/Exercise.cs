@@ -4,32 +4,30 @@ namespace Coding.Exercise
 {
 	public class Exercise
 	{
-		public static void NestedCheck(int number)
+		public static void ForLoop()
 		{
-			if (number % 3 == 0)
-			
-				Console.WriteLine("Divisible by 3.");
-			
-			else if (number % 7 == 0)
-			
-				Console.WriteLine("Divisible by 7.");
-			
-			else 
-			
-				Check(number);
-			
+			for (int i = -3; i <= 3; i++) 
+			{
+				Console.WriteLine(i);
+			} 
 		}
 
-		public static void Check(int number)
+		public static void WhileLoop()
 		{
-			if (number % 2 == 0)
-			
-				Console.WriteLine("Even number.");
-			
-			else
-			
-				Console.WriteLine("Odd number.");
-			
+			int i = 3;
+			while (i >= -3) 
+			{ 
+				Console.WriteLine(i);
+				i--;
+			}	
 		}
+
+		public static void Run()
+		{
+			WhileLoop();
+			ForLoop();
+
+		}
+
 	}
 }
