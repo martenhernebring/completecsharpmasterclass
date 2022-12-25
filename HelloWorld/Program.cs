@@ -7,16 +7,26 @@ namespace HelloWorld
 
 		static void Main(string[] args)
 		{
-			Console.Write("Enter current Celcius degrees in numbers: ");
-			if (int.TryParse(Console.ReadLine(), out int degrees))
+			int current, total = 0, count = 0;
+			do
 			{
-				string feedback = degrees <= 15 ? "it is too cold here" : degrees <= 24 ? "it is ok" : "it is hot here";
-				Console.WriteLine(feedback);
-			}
-			else
-			{
-				Console.WriteLine("Not a valid Temperature");
-			}
+				Console.Write("Enter current student score: ");
+				if(int.TryParse(Console.ReadLine(), out current))
+				{
+					if (current == -1)
+					{
+						break;
+					}
+					Console.WriteLine("Score {0} was entered correctly", current);
+					total += current;
+					count++;
+				}
+				else
+				{
+					Console.WriteLine("Score wasn't entered correctly! Please try again");
+				}
+			} while (true);
+			Console.WriteLine("The average score was {0}.", (double) total / count);
 		}
 	}
 }
