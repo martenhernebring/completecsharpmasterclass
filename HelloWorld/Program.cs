@@ -10,12 +10,17 @@ namespace HelloWorld
 			int current, total = 0, count = 0;
 			do
 			{
-				Console.Write("Enter current student score: ");
+				Console.Write("Enter current student score or -1 to stop: ");
 				if(int.TryParse(Console.ReadLine(), out current))
 				{
 					if (current == -1)
 					{
 						break;
+					}
+					else if (current < 1)
+					{
+						Console.WriteLine("Please enter a positive value");
+						continue;
 					}
 					Console.WriteLine("Score {0} was entered correctly", current);
 					total += current;
