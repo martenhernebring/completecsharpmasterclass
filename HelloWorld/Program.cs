@@ -13,12 +13,10 @@ namespace HelloWorld
 
 		public static void Main(string[] args)
 		{
-			for (int row = 0; row < matrix.GetLength(0); row++)
+			int max = matrix.GetLength(0) - 1;
+			for (int i = 0; i <= max; i++)
 			{
-				for (int column = 0; column < matrix.GetLength(1); column++)
-				{
-					Console.Write(matrix[row, column] + " ");
-				}
+				Console.WriteLine(matrix[i, max - i] + " ");
 			}
 		}
 	}
