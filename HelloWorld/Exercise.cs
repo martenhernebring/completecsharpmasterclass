@@ -2,50 +2,37 @@
 
 namespace Coding.Exercise
 {
-	public class Phone
+	public class Exercise
 	{
-		public string Company;
-		public string Model;
-		public string ReleaseDay;
-
-		public Phone() 
+		public static void GetOdd(int[] Array)
 		{
-			Company = "unknown";
-			Model = "unknown";
-			ReleaseDay = "unknown";
+			for (int i = 0; i < Array.Length; i++) 
+			{
+				if (Array[i] % 2 != 0)
+				{
+					Console.WriteLine(Array[i]);
+				}
+			}
 		}
 
-		public Phone(string Company, string Model)
+		public static void GetEven(int[] Array)
 		{
-			this.Company = Company;
-			this.Model = Model;
-			ReleaseDay = "unknown";
+			foreach (int current in Array)
+			{
+				if (current % 2 == 0)
+				{
+					Console.WriteLine(current);
+				}
+			}
 		}
 
-		public Phone(string company, string model, string releaseDay) : this(company, model)
+		public static void Run()
 		{
-			ReleaseDay = releaseDay;
-		}	
+			int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-		public void Introduce()
-		{
-			Console.WriteLine("It is {0} created by {1}. It was released {2}.", Model, Company, ReleaseDay);
+			GetOdd(array);
+			GetEven(array);
+
 		}
-
-	}
-
-	public class Run
-	{
-		public static void RunExercise()
-		{
-			Phone one = new Phone();
-			Phone two = new Phone("Apple", "IPhone 12");
-			Phone three = new Phone("Apple", "IPhone 12", "September 24, 2021");
-
-			one.Introduce();
-			two.Introduce();
-			three.Introduce();
-		}
-
 	}
 }
