@@ -2,19 +2,24 @@
 
 namespace HelloWorld
 {
-	internal class Program
+	public class Program
 	{
-
-		static void Main(string[] args)
+		private static int[,] matrix =
 		{
-			//declare 2D array
-			int[,] matrix = new int[,] 
+			{ 1, 2, 3 },
+			{4, 5, 6 },
+			{7, 8, 9 }
+		};
+
+		public static void Main(string[] args)
+		{
+			for (int row = 0; row < matrix.GetLength(0); row++)
 			{
-				{1,2,3}, {4,5,6}, {7,8,9}
-			};
-			Console.WriteLine("Central value is {0}", matrix[2,0]);
-			//declare 3D array
-			//int[,,] threeD;
+				for (int column = 0; column < matrix.GetLength(1); column++)
+				{
+					Console.Write(matrix[row, column] + " ");
+				}
+			}
 		}
 	}
 }
