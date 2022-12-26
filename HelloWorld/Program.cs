@@ -7,31 +7,11 @@ namespace HelloWorld
 
 		static void Main(string[] args)
 		{
-			int current, total = 0, count = 0;
-			do
+			string[] friends = { "f1", "f2", "f3", "f4", "f5" };
+			foreach (string friend in friends) 
 			{
-				Console.Write("Enter current student score or -1 to stop: ");
-				if(int.TryParse(Console.ReadLine(), out current))
-				{
-					if (current == -1)
-					{
-						break;
-					}
-					else if (current < 1)
-					{
-						Console.WriteLine("Please enter a positive value");
-						continue;
-					}
-					Console.WriteLine("Score {0} was entered correctly", current);
-					total += current;
-					count++;
-				}
-				else
-				{
-					Console.WriteLine("Score wasn't entered correctly! Please try again");
-				}
-			} while (true);
-			Console.WriteLine("The average score was {0}.", (double) total / count);
+				Console.WriteLine("Hi {0}", friend);
+			}
 		}
 	}
 }
