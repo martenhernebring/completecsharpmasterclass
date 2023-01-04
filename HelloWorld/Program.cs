@@ -8,19 +8,21 @@ namespace HelloWorld
 
 		public static void Main(string[] args)
 		{
-			int[] grades = { 1, 2, 3, 4, 5, 6, 7, 8, };
-			double averageResult = GetAverage(grades);
-			Console.WriteLine(averageResult);
+			int min = MinValue(new int[]{3, 2, 1, 0});
+			Console.WriteLine(min);
 		}
 
-		public static double GetAverage(int[] grades) 
+		public static int MinValue(params int[] numbers)
 		{
-			int sum = 0;
-			for (int i = 0; i < grades.Length; i++)
+			int min = int.MaxValue;
+			foreach (int number in numbers)
 			{
-				sum += grades[i];
+				if (number < min) 
+				{
+					min = number;
+				}
 			}
-			return (double) sum / grades.Length;
+			return min;
 		}
 
 	}
