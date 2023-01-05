@@ -1,5 +1,4 @@
-﻿using Coding.Exercise;
-using System;
+﻿using School;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,10 +9,18 @@ namespace HelloWorld
 
 		public static void Main(string[] args)
 		{
-			var evenNumbers = ListsExercise.Solution();
-			foreach (int number in evenNumbers)
+			Dictionary<int, Student> idStudentDictionary = new Dictionary<int, Student>();
+			Student student = new Student(1, "Jason", 55);
+			idStudentDictionary.Add(student.Id, student);
+			idStudentDictionary.Add(2, new Student(2, "Maria", 30));
+			Student storedStudent = idStudentDictionary[student.Id];
+			foreach (KeyValuePair<int, Student> keyValuePair in idStudentDictionary)
 			{
-				Console.Write(number + " ");
+				keyValuePair.Value.Print();
+			}
+			foreach (Student s in idStudentDictionary.Values)
+			{
+				s.Print();
 			}
 		}
 
