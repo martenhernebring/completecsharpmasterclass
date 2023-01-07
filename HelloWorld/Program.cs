@@ -1,6 +1,8 @@
 ﻿using School;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace HelloWorld
 {
@@ -9,19 +11,20 @@ namespace HelloWorld
 
 		public static void Main(string[] args)
 		{
-			Dictionary<int, Student> idStudentDictionary = new Dictionary<int, Student>();
-			Student student = new Student(1, "Jason", 55);
-			idStudentDictionary.Add(student.Id, student);
-			idStudentDictionary.Add(2, new Student(2, "Maria", 30));
-			Student storedStudent = idStudentDictionary[student.Id];
-			foreach (KeyValuePair<int, Student> keyValuePair in idStudentDictionary)
-			{
-				keyValuePair.Value.Print();
-			}
-			foreach (Student s in idStudentDictionary.Values)
-			{
-				s.Print();
-			}
+			Console.WriteLine("Main thread: starting a timer");
+			Timer t = new Timer(ComputeBoundOp, 5, 0, 2000);
+			Console.WriteLine("Main thread: Doing other work here...");
+			Thread.Sleep(10000); // Simulating other work (10 seconds)
+			t.Dispose(); // Cancel the timer now
+		}
+		// This method's signature must match the TimerCallback delegate
+		private static void ComputeBoundOp(Object state)
+		{
+			// This method is executed by a thread pool thread 
+			Console.WriteLine("In ComputeBoundOp: state={0}", state);
+			Thread.Sleep(1000); // Simulates other work (1 second)
+								// When this method returns, the thread goes back 
+								// to the pool and waits for another task 
 		}
 
 	}
