@@ -2,37 +2,49 @@
 
 namespace Coding.Exercise
 {
-	public class Exercise
+
+	public interface IShootable
 	{
-		public static void GetOdd(int[] Array)
+		void Shoot();
+	}
+
+	public class Weapon
+	{
+		public string Name { get; set; }
+		public Weapon(string name) 
 		{
-			for (int i = 0; i < Array.Length; i++) 
-			{
-				if (Array[i] % 2 != 0)
-				{
-					Console.WriteLine(Array[i]);
-				}
-			}
+			Name = name;
 		}
-
-		public static void GetEven(int[] Array)
+		public void Label() 
 		{
-			foreach (int current in Array)
-			{
-				if (current % 2 == 0)
-				{
-					Console.WriteLine(current);
-				}
-			}
+			Console.WriteLine("This is {0}!", Name);
+		} 
+	}
+
+	public class Gun : Weapon, IShootable
+	{
+		public Gun() : base ("Gun") { }
+
+		public void Shoot()
+		{
+			Console.WriteLine("Bang!");
 		}
+	}
 
-		public static void Run()
+	public static class Program
+	{
+		static public void Main(string[] args)
 		{
-			int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+			// new instance 
+			Gun pist = new Gun();
 
-			GetOdd(array);
-			GetEven(array);
+			// test for methods
+			pist.Label();
+			pist.Shoot();
 
+			// verifying the interface and the parent class
+			if (pist is IShootable && pist is Weapon)
+				System.Console.WriteLine("Yes, it is my parents.");
 		}
 	}
 }
