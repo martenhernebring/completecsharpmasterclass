@@ -13,10 +13,14 @@ namespace HelloWorld
 
 		public static void Main(string[] args)
 		{
-			DateTime myBirthday = new DateTime(1986, 4, 26);
-			Console.WriteLine("My birthday is {0}", myBirthday);
-			Console.WriteLine(DateTime.UtcNow);
+			DateTime tomorrow = GetUtcTomorrow();
+			Console.WriteLine(tomorrow);
+			Console.WriteLine("Days since Mortens birthday is {0}", DateTime.Now.Subtract(new DateTime(1986, 4, 26)));
 		}
 
+		private static DateTime GetUtcTomorrow()
+		{
+			return DateTime.UtcNow.AddDays(1);
+		}
 	}
 }
