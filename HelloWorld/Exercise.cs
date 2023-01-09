@@ -1,33 +1,47 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Coding.Exercise
 {
-
-	public interface IShootable
-	{
-		void Shoot();
-	}
-
-	public class Weapon
+	public class Contact 
 	{
 		public string Name { get; set; }
-		public Weapon(string name) 
+		public string PhoneNumber { get; set; }
+
+		public Contact(string name, string phoneNumber) 
 		{
 			Name = name;
+			PhoneNumber = phoneNumber;
 		}
-		public void Label() 
+
+		public void Call() 
 		{
-			Console.WriteLine("This is {0}!", Name);
-		} 
+			Console.WriteLine("Calling to {0}. Phone number is {1}", Name, PhoneNumber);
+		}
 	}
 
-	public class Gun : Weapon, IShootable
+	public class PhoneBook : IEnumerable<Contact>
 	{
-		public Gun() : base ("Gun") { }
-
-		public void Shoot()
+		private List<Contact> contacts;
+		public PhoneBook() 
 		{
-			Console.WriteLine("Bang!");
+			contacts = new List<Contact>{
+				new Contact("Andre", "435797087"),
+				new Contact("Lisa", "435677087"),
+				new Contact("Dine", "3457697087"),
+				new Contact("Sofi", "4367697087")
+			};
+		}
+
+		public IEnumerator<Contact> GetEnumerator()
+		{
+			return contacts.GetEnumerator();
+		}
+
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -35,16 +49,12 @@ namespace Coding.Exercise
 	{
 		static public void Main(string[] args)
 		{
-			// new instance 
-			Gun pist = new Gun();
+			PhoneBook MyPhoneBook = new PhoneBook();
 
-			// test for methods
-			pist.Label();
-			pist.Shoot();
-
-			// verifying the interface and the parent class
-			if (pist is IShootable && pist is Weapon)
-				System.Console.WriteLine("Yes, it is my parents.");
+			foreach (Contact contact in MyPhoneBook)
+			{
+				contact.Call();
+			}
 		}
 	}
 }
