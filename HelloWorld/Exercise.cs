@@ -1,32 +1,33 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace Coding.Exercise
 {
 	public class Run
 	{
-		public delegate float OperationDelegate(float leftfield, float rightfield);
+		private static Func<float, float, float> plus = (lf, rf) => lf + rf;
+		private static Func<float, float, float> minus = (lf, rf) => lf - rf;
+		private static Func<float, float, float> divide = (lf, rf) => lf / rf;
+		private static Func<float, float, float> multiply = (lf, rf) => lf * rf;
 
-		public static float Add(float leftField, float rightField)
+		private static Dictionary<string, Func<float, float, float>> operators = new Dictionary<string, Func<float, float, float>>()
 		{
-			return leftField + rightField;
-		}
-		public static float Subtract(float leftField, float rightField)
+			{"+", plus },
+			{"-", minus },
+			{"/", divide },
+			{"*", multiply }
+		};
+
+		public static Func<float, float, float> OperationGet(string input)
 		{
-			return leftField - rightField;
-		}
-		public static float Multiply(float leftField, float rightField)
-		{
-			return leftField * rightField;
-		}
-		public static float Divide(float leftField, float rightField)
-		{
-			return leftField / rightField;
-		}
-		public static float ApplyOperation(float leftField, float rightField, OperationDelegate operation)
-		{
-			return operation(leftField, rightField);
+			if (operators.ContainsKey(input))
+			{
+				return operators[input];
+			}
+			else
+			{
+				return null;
+			}
 		}
 	}
 }
-
