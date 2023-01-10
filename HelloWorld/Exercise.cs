@@ -1,29 +1,32 @@
 ﻿using System;
 
+
 namespace Coding.Exercise
 {
-
-	public class Exercise
+	public class Run
 	{
-		public static double ConvertToRadians(double angle)
-		{
-			return (Math.PI / 180) * angle;
-		}
+		public delegate float OperationDelegate(float leftfield, float rightfield);
 
-		public static void Run(string line)
+		public static float Add(float leftField, float rightField)
 		{
-			int degrees;
-			if (int.TryParse(line, out degrees) && degrees >= 0 && degrees <= 180)
-			{
-				double radians = ConvertToRadians(degrees);
-				Console.WriteLine("Cos = {0}", Math.Cos(radians));
-				Console.WriteLine("Sin = {0}", Math.Sin(radians));
-				Console.WriteLine("Tg = {0}", Math.Tan(radians));
-			}
-			else
-			{
-				Console.WriteLine("Check the input!");
-			}
+			return leftField + rightField;
+		}
+		public static float Subtract(float leftField, float rightField)
+		{
+			return leftField - rightField;
+		}
+		public static float Multiply(float leftField, float rightField)
+		{
+			return leftField * rightField;
+		}
+		public static float Divide(float leftField, float rightField)
+		{
+			return leftField / rightField;
+		}
+		public static float ApplyOperation(float leftField, float rightField, OperationDelegate operation)
+		{
+			return operation(leftField, rightField);
 		}
 	}
 }
+
